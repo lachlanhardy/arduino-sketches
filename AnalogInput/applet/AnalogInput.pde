@@ -23,7 +23,7 @@ int lVal = 0;   // variable to store the value coming from the light sensor
 
 void setup() {
   pinMode(ledPin, OUTPUT);  // declare the ledPin as an OUTPUT
-  Serial.begin(9600);   // initialise serial 
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -40,7 +40,6 @@ void loop() {
     busted = 1;
   }
 
-  // Print debug data to serial monitor
   if (busted) {
     Serial.print("Busted! Value too low, reverted to 1.\n");
     busted = 0;

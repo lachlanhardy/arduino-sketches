@@ -1,3 +1,4 @@
+#include "WProgram.h"
 /*
  * AnalogInput
  * by DojoDave <http://www.0j0.org>
@@ -10,6 +11,8 @@
  * http://www.arduino.cc/en/Tutorial/AnalogInput
  */
 
+void setup();
+void loop();
 int ledPin = 13;   // select the pin for the LED
 int val = 0;    // variable to store the value for the LED
 bool busted = 0;  // simple error variable 'is it busted?'
@@ -23,7 +26,7 @@ int lVal = 0;   // variable to store the value coming from the light sensor
 
 void setup() {
   pinMode(ledPin, OUTPUT);  // declare the ledPin as an OUTPUT
-  Serial.begin(9600);   // initialise serial 
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -40,7 +43,6 @@ void loop() {
     busted = 1;
   }
 
-  // Print debug data to serial monitor
   if (busted) {
     Serial.print("Busted! Value too low, reverted to 1.\n");
     busted = 0;
@@ -60,3 +62,16 @@ void loop() {
   delay(val);                  // stop the program for some time
   
 }
+
+int main(void)
+{
+	init();
+
+	setup();
+    
+	for (;;)
+		loop();
+        
+	return 0;
+}
+
